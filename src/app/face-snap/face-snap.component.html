@@ -1,6 +1,7 @@
 <div class="face-snap-card" [ngClass]="{ snapped: buttonText === 'Burk'}">
-    <h2>{{ faceSnap.title }}</h2>
-    <p>Mis en ligne le {{ faceSnap.createdDate }}</p>
+    <figcaption>{{ 0.477 | percent }}</figcaption>
+    <h2>{{ faceSnap.title | uppercase}}</h2>
+    <p>Mis en ligne le {{ faceSnap.createdDate | date: 'longDate' | titlecase }}</p>
     <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
     <p>{{ faceSnap.description }}</p>
     <p *ngIf="faceSnap.location">Photo prise à : {{ faceSnap.location }}</p>
@@ -8,4 +9,5 @@
       <button (click)="onSnap()">{{ buttonText }}</button>
       Like(s) <span [ngStyle]="{color : 'rgb(0,'+ faceSnap.snaps +',0)'}">{{ faceSnap.snaps }}</span>
     </p>
+    <strong>{{ 400 | currency: 'EUR' : 'code' }}</strong>
   </div>
